@@ -28,7 +28,8 @@ user_input = st.text_area("영어 문장을 입력하세요:", height=150)
 if st.button("분석 시작"):
     if user_input:
         try:
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model_name = 'gemini-1.5-flash'
+model = genai.GenerativeModel(model_name)
             response = model.generate_content(f"{ANALYSIS_PROMPT} \n 사용자 답변: {user_input}")
             
             # JSON 정제 로직
